@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Database Connection</title>
+</head>
+<body>
+    <h1>Database Connection</h1>
+    <form action="/run_script" method="post">
+        <input type="submit" value="Run Script">
+    </form>
+    {% if result %}
+    <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
