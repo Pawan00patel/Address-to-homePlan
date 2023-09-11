@@ -17,7 +17,8 @@ def initialize_database():
             title TEXT,
             price TEXT,
             area TEXT,
-            description TEXT
+            description TEXT,
+            images TEXT
         )
     ''')
 
@@ -42,6 +43,17 @@ def run_script():
         result = f'Error: {str(e)}'
 
     return render_template('index.html', result=result)
+# @app.route('/run_image_script', methods=['POST'])
+# def run_image_script():
+#     try:
+#         subprocess.run(['python', 'images.py'])
+#         result = 'Image Script executed successfully.'
+#     except Exception as e:
+#         result = f'Error: {str(e)}'
+#
+#     return render_template('index.html', result=result)
+
+
 @app.route('/view_data')
 def view_data():
     conn = sqlite3.connect('property_data.db')

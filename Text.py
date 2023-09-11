@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import sqlite3
 
 url = 'https://www.magicbricks.com/property-for-sale/residential-commercial-real-estate?proptype=Multistorey-Apartment,Builder-Floor-Apartment,Penthouse,Studio-Apartment,Residential-House,Villa,Residential-Plot,Commercial-Office-Space,Office-ITPark-SEZ,Commercial-Shop,Commercial-Showroom,Commercial-Land,Industrial-Land,Warehouse/Godown,Industrial-Building,Industrial-Shed&BudgetMin=50-Lacs&BudgetMax=1-Crores&cityName=bangalore'
-
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -19,6 +18,9 @@ areas = [element.find(string=True, recursive=False).strip() for element in area_
 description_elements = soup.find_all(class_='two-line-truncated')
 descriptions = [element.get_text(strip=True)[:100] + '...' for element in description_elements]
 
+# image_elements = soup.find_all('div', class_='mb-srp__card__container')
+# image_urls = [element.find('img')['src'] for element in image_elements]
+
 data = list(zip(titles, prices, areas, descriptions))
 
 conn = sqlite3.connect('property_data.db')
@@ -32,3 +34,4 @@ for item in data:
 
 conn.commit()
 conn.close()
+#hii this is to verify the commit working or not
