@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import re
 
 # Define the path to the Firefox WebDriver executable
 firefox_driver_path = r"C:\Users\Pawan\Downloads\geckodriver-v0.33.0-win64\geckodriver.exe"  # Replace with the actual path
@@ -20,6 +21,8 @@ options = webdriver.FirefoxOptions()
 driver = webdriver.Firefox(options=options)
 driver.maximize_window()
 
+ # Import the regular expression module
+
 try:
     # Load the provided URL using the WebDriver
     driver.get(url)
@@ -34,19 +37,18 @@ try:
     # Find all <li> tags within the parsed HTML
     li_tags = soup.find_all('li')
 
-    # Loop through the <li> tags and find the 'src' attribute of the imagesxkxs
+    # Define a regular expression pattern to match "Floor-Plan" in the src attribute
+    pattern = re.compile(r'Floor-Plan', re.IGNORECASE)
+
+    # Loop through the <li> tags and find the 'src' attribute of the images
     for li_tag in li_tags:
         image_tag = li_tag.find('img')
         if image_tag and 'src' in image_tag.attrs:
             img_src = image_tag['src']
-            if 'floor-plan' in img_src.lower():
-            # Download or scrape the image with 'home plan' keyword in its src
-                print("Downloading image with 'floor-plan' keyword:", img_src)
-            # You can add your code to download or scrape the image here
-            else:
-                print("Skipping image without 'home plan' keyword:", img_src)
-        else:
-            print("Image src not found in this <li> tag")
+            if re.search(pattern, img_src):
+                # Download or scrape the image with 'Floor-Plan' keyword in its src
+                print("Downloading image with 'Floor-Plan' keyword:", img_src)
+                # You can add your code to download or scrape the image here
 
 except Exception as e:
     print("Error:", e)
