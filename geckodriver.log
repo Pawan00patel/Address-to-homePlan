@@ -1,0 +1,264 @@
+1695140836405	geckodriver	INFO	Listening on 127.0.0.1:53559
+1695140839445	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53560" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileKRWXS8"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695140839908	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695140840054	Marionette	INFO	Listening on port 53574
+WebDriver BiDi listening on ws://127.0.0.1:53560
+Read port: 53574
+1695140840307	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53560/devtools/browser/a805a57b-6768-4bff-bb9e-74e1f943769c
+1695140854502	Marionette	INFO	Stopped listening on port 53574
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js, line 2: Script terminated by timeout at:
+806/E/</</</n<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js:2:104245
+
+Dynamically enable window occlusion 1
+1695140956042	geckodriver	INFO	Listening on 127.0.0.1:53661
+1695140959087	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53662" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileIdhZjs"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695140959496	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695140959624	Marionette	INFO	Listening on port 53669
+WebDriver BiDi listening on ws://127.0.0.1:53662
+Read port: 53669
+1695140959836	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53662/devtools/browser/fb8560c2-e078-4d03-ba91-6ce9b26885fd
+JavaScript error: , line 0: NotAllowedError: User denied permission to use the Push API.
+1695140974873	Marionette	INFO	Stopped listening on port 53669
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js, line 2: Script terminated by timeout at:
+806/E/</</</n<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js:2:104245
+
+Dynamically enable window occlusion 1
+1695141429939	geckodriver	INFO	Listening on 127.0.0.1:53880
+1695141432988	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53881" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileKm7pG2"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695141433411	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695141433521	Marionette	INFO	Listening on port 53888
+WebDriver BiDi listening on ws://127.0.0.1:53881
+Read port: 53888
+1695141433717	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53881/devtools/browser/aeee5b38-16b9-4813-af52-47c51c9a317d
+1695141448042	Marionette	INFO	Stopped listening on port 53888
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js, line 2: Script terminated by timeout at:
+806/E/</</</n<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js:2:104245
+
+Dynamically enable window occlusion 1
+1695141530057	geckodriver	INFO	Listening on 127.0.0.1:53974
+1695141533104	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53975" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileajww2a"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695141533596	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695141533682	Marionette	INFO	Listening on port 53983
+WebDriver BiDi listening on ws://127.0.0.1:53975
+Read port: 53983
+1695141533931	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:53975/devtools/browser/617a5a25-dd3a-4d89-b254-475311b92fe2
+1695141548790	Marionette	INFO	Stopped listening on port 53983
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js, line 2: Script terminated by timeout at:
+904/run/e.autoplay.timeout<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:211167
+
+Dynamically enable window occlusion 1
+1695141626853	geckodriver	INFO	Listening on 127.0.0.1:54050
+1695141629925	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54051" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofile0iofXG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695141630322	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695141630413	Marionette	INFO	Listening on port 54058
+WebDriver BiDi listening on ws://127.0.0.1:54051
+Read port: 54058
+1695141630672	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54051/devtools/browser/f4635e3d-4af3-4b8e-a5a8-4e2eb598db16
+1695141644506	Marionette	INFO	Stopped listening on port 54058
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js, line 2: Script terminated by timeout at:
+806/E/</</</n<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~748942c6.bf85afe85a592134f692.js:2:104245
+
+Dynamically enable window occlusion 1
+1695142015116	geckodriver	INFO	Listening on 127.0.0.1:54179
+1695142018180	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54180" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileUs22N3"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695142018682	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695142018824	Marionette	INFO	Listening on port 54189
+WebDriver BiDi listening on ws://127.0.0.1:54180
+Read port: 54189
+1695142019064	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54180/devtools/browser/12b469ad-984d-400c-9e3e-2359e482f63f
+1695142021589	Marionette	INFO	Stopped listening on port 54189
+Dynamically enable window occlusion 1
+1695142216939	geckodriver	INFO	Listening on 127.0.0.1:54232
+1695142220030	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54233" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileLAqhrV"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695142220373	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695142220435	Marionette	INFO	Listening on port 54240
+WebDriver BiDi listening on ws://127.0.0.1:54233
+Read port: 54240
+1695142220623	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54233/devtools/browser/ebec7d41-efa9-41d0-95d9-3528398d80a6
+1695142222796	Marionette	INFO	Stopped listening on port 54240
+Dynamically enable window occlusion 1
+1695142282901	geckodriver	INFO	Listening on 127.0.0.1:54275
+1695142285985	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54276" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileW34f8v"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695142286315	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695142286397	Marionette	INFO	Listening on port 54283
+WebDriver BiDi listening on ws://127.0.0.1:54276
+Read port: 54283
+1695142286595	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54276/devtools/browser/bd6aa4ba-cfcc-4a67-821b-db2528cdea7c
+1695142288825	Marionette	INFO	Stopped listening on port 54283
+Dynamically enable window occlusion 1
+1695142940489	geckodriver	INFO	Listening on 127.0.0.1:54450
+1695142943546	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54451" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileaHPboU"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695142943879	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695142943965	Marionette	INFO	Listening on port 54461
+WebDriver BiDi listening on ws://127.0.0.1:54451
+Read port: 54461
+1695142944184	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54451/devtools/browser/02f6e00f-a06a-4486-950f-ff82d0209bb3
+1695142946394	Marionette	INFO	Stopped listening on port 54461
+Dynamically enable window occlusion 1
+1695143290062	geckodriver	INFO	Listening on 127.0.0.1:54515
+1695143293112	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54516" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofilesZElSL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695143293392	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695143293460	Marionette	INFO	Listening on port 54526
+WebDriver BiDi listening on ws://127.0.0.1:54516
+Read port: 54526
+1695143293640	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54516/devtools/browser/3ba7d8c3-252f-4b6a-80d5-679bfbaf505f
+1695143297502	Marionette	INFO	Stopped listening on port 54526
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js, line 2: Script terminated by timeout at:
+i@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:28266
+o@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:29104
+f@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~d939e436.3defdd3fea6ea117a1d4.js:2:129976
+G@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~d939e436.3defdd3fea6ea117a1d4.js:2:138585
+updateSlides@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:50420
+258/r.init@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:95772
+359/p</<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:112140
+Qa@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:249030
+934/il/</<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:273153
+934/il/<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:273850
+936/t.unstable_runWithPriority@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:220912
+Io@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218121
+il@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:268885
+Qs@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:258680
+934/zo/<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218421
+936/t.unstable_runWithPriority@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:220912
+Io@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218121
+zo@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218360
+Bo@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218293
+Vs@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:255278
+enqueueSetState@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:222052
+933/S.prototype.setState@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-vendor~55119a63.bda842c7f64c89450b3e.js:2:1434
+880/r/u<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:209944
+v@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:145750
+c@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:126247
+C@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:122344
+450/T/</</<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:122985
+
+Dynamically enable window occlusion 1
+1695143609419	geckodriver	INFO	Listening on 127.0.0.1:54641
+1695143612472	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54642" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileZYGgss"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695143612740	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695143612808	Marionette	INFO	Listening on port 54652
+Read port: 54652
+WebDriver BiDi listening on ws://127.0.0.1:54642
+1695143612859	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:54642/devtools/browser/75b41fa6-6892-45e8-b223-2cc58e5207a2
+1695143616857	Marionette	INFO	Stopped listening on port 54652
+JavaScript warning: https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-vendor~55119a63.bda842c7f64c89450b3e.js, line 2: Script terminated by timeout at:
+933/t.useRef@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-vendor~55119a63.bda842c7f64c89450b3e.js:2:6129
+2/Q/e<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:91207
+2/Q@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:91792
+o@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~3eda4545.5285f8c0763573277ce1.js:1:113726
+be@https://cdn.staticmb.com/srpstatic/client/propertysrp-main-chunk-main~616c332c.acec731ed2929d20f3f9.js:2:239552
+Ui@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:230849
+fl@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:276495
+nl@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:261385
+Qs@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:258478
+934/zo/<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218421
+936/t.unstable_runWithPriority@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:220912
+Io@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218121
+zo@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218360
+Bo@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:218293
+Vs@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:255278
+enqueueSetState@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~7d359b94.2698e14cca57e83814af.js:2:222052
+933/S.prototype.setState@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-vendor~55119a63.bda842c7f64c89450b3e.js:2:1434
+880/r/u<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:209944
+v@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:145750
+c@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:126247
+C@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:122344
+450/T/</</<@https://cdn.staticmb.com/srpstatic/client/propertysrpchunk-main~678f84af.7ac863b4446455b08e4c.js:2:122985
+
+Dynamically enable window occlusion 1
+1695144264283	geckodriver	INFO	Listening on 127.0.0.1:50631
+1695144267361	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50632" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileBaHKzY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695144267721	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695144267802	Marionette	INFO	Listening on port 50642
+WebDriver BiDi listening on ws://127.0.0.1:50632
+Read port: 50642
+1695144267944	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50632/devtools/browser/925d2bca-44fc-421c-8a8f-18566a38952e
+1695144271388	Marionette	INFO	Stopped listening on port 50642
+Dynamically enable window occlusion 1
+1695144435541	geckodriver	INFO	Listening on 127.0.0.1:50689
+1695144438601	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50690" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofiley4lJRN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695144438851	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695144438926	Marionette	INFO	Listening on port 50698
+WebDriver BiDi listening on ws://127.0.0.1:50690
+Read port: 50698
+1695144439044	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50690/devtools/browser/22374f8a-3ae7-422d-b0ae-c97a0c85f7e6
+1695144442961	Marionette	INFO	Stopped listening on port 50698
+Dynamically enable window occlusion 1
+1695144742735	geckodriver	INFO	Listening on 127.0.0.1:50774
+1695144745805	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50775" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileEegLDS"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695144746096	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695144746184	Marionette	INFO	Listening on port 50782
+WebDriver BiDi listening on ws://127.0.0.1:50775
+Read port: 50782
+1695144746367	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50775/devtools/browser/77be45f1-8458-4143-a1c4-6d62627ff8fe
+1695144748982	Marionette	INFO	Stopped listening on port 50782
+Dynamically enable window occlusion 1
+1695144799155	geckodriver	INFO	Listening on 127.0.0.1:50823
+1695144802206	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50824" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofileYb2sGb"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695144802487	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695144802574	Marionette	INFO	Listening on port 50832
+WebDriver BiDi listening on ws://127.0.0.1:50824
+Read port: 50832
+1695144802754	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50824/devtools/browser/273c2ed0-e036-4a12-808a-63c945f3517a
+1695144806003	Marionette	INFO	Stopped listening on port 50832
+Dynamically enable window occlusion 1

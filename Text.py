@@ -18,7 +18,7 @@ areas = [element.find(string=True, recursive=False).strip() for element in area_
 description_elements = soup.find_all(class_='two-line-truncated')
 descriptions = [element.get_text(strip=True)[:100] + '...' for element in description_elements]
 
-# image_elements = soup.find_all('div', class_='mb-srp__card__container')
+# image_elements = soup.find_all('div', class_='ide-duplicate swiper-slide-active')
 # image_urls = [element.find('img')['src'] for element in image_elements]
 
 data = list(zip(titles, prices, areas, descriptions))
