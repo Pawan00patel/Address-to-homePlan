@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Scraped Property Data</title>
@@ -22,4 +22,63 @@
         {% endfor %}
     </table>
 </body>
+</html> -->
+<!-- view_data.html -->
+<!-- view_data.html -->
+<!-- view_data.html -->
+<!-- view_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Fetched Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .odd-row {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetched Property Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Area</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for property in data %}
+            {% if loop.index % 2 == 0 %}
+            <tr class="odd-row">
+            {% else %}
+            <tr>
+            {% endif %}
+                <td>{{ loop.index }}</td> <!-- Entry number -->
+                <td>{{ property[1] }}</td> <!-- Title -->
+                <td>{{ property[2] }}</td> <!-- Price -->
+                <td>{{ property[3] }}</td> <!-- Area -->
+                <td>{{ property[4] }}</td> <!-- Description -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
 </html>
+
