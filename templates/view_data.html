@@ -65,7 +65,11 @@
         </thead>
         <tbody>
             {% for property in data %}
-            <tr class="{% cycle 'odd-row' '' %}">
+            {% if loop.index % 2 == 0 %}
+            <tr class="odd-row">
+            {% else %}
+            <tr>
+            {% endif %}
                 <td>{{ loop.index }}</td> <!-- Entry number -->
                 <td>{{ property[1] }}</td> <!-- Title -->
                 <td>{{ property[2] }}</td> <!-- Price -->
@@ -77,3 +81,4 @@
     </table>
 </body>
 </html>
+
