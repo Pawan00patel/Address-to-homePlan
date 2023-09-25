@@ -33,7 +33,7 @@ def index():
 def scrape():
     try:
         city = request.form['city']
-        city_url = f"https://www.magicbricks.com/property-for-sale/residential-real-estate?cityName={city}"
+        city_url = f"https://www.magicbricks.com/property-for-sale/residential-commercial-real-estate?proptype=Multistorey-Apartment,Builder-Floor-Apartment,Penthouse,Studio-Apartment,Residential-House,Villa,Residential-Plot,Commercial-Office-Space,Office-ITPark-SEZ,Commercial-Shop,Commercial-Showroom,Commercial-Land,Industrial-Land,Warehouse/Godown,Industrial-Building,Industrial-Shed&BudgetMin=50-Lacs&BudgetMax=1-Crores&cityName={city}"
 
         scraped_data = scrape_property_data(city_url)
         if scraped_data:
