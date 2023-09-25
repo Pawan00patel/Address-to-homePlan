@@ -49,7 +49,7 @@ def scrape():
         city = request.form['city']
         start_time = time.time()
         scraped_data = []
-        while time.time() - start_time < 60 and len(scraped_data) < 400:
+        while time.time() - start_time < 60 and len(scraped_data) < 1000:
             new_data = scrape_property_data(city)
             if not new_data:
                 break
