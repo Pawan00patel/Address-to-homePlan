@@ -1,26 +1,8 @@
-# web_scraper.py
+import sqlite3
 import requests
 from bs4 import BeautifulSoup
 def scrape_property_data(city):
     url = f"https://www.magicbricks.com/property-for-sale/residential-real-estate?cityName={city}"
-def insert_data_into_database(data):
-    try:
-        conn = sqlite3.connect('property_data.db')
-        cursor = conn.cursor()
-
-        for item in data:
-            cursor.execute('''
-                INSERT INTO properties (title, price, area, description)
-                VALUES (?, ?, ?, ?)
-            ''', item)
-
-        conn.commit()
-        conn.close()
-
-    except Exception as e:
-        print(f"An error occurred while inserting data into the database: {str(e)}")
-
-def scrape_property_data(url):
     try:
         response = requests.get(url)
         response.raise_for_status()

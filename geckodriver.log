@@ -435,3 +435,16 @@ i@https://cdn.staticmb.com/ldpstatic/1695387036975/client/property/web/residenti
 Dynamically enable window occlusion 1
 JavaScript error: https://cdn.staticmb.com/ldpstatic/1695387036975/client/property/web/residential/propertyDetail.js, line 2: Error: Network Error
 JavaScript error: https://cdn.staticmb.com/ldpstatic/1695387036975/client/property/web/residential/propertyDetail.js, line 2: Error: Network Error
+1695815350817	geckodriver	INFO	Listening on 127.0.0.1:52818
+1695815353875	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52819" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Pawan\\AppData\\Local\\Temp\\rust_mozprofile0M1G5I"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1695815354406	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1695815354563	Marionette	INFO	Listening on port 52834
+WebDriver BiDi listening on ws://127.0.0.1:52819
+Read port: 52834
+1695815354863	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:52819/devtools/browser/20eb2f53-89d4-4b47-bb21-848d8c328738
+1695815359631	Marionette	INFO	Stopped listening on port 52834
+Dynamically enable window occlusion 1
