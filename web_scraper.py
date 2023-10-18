@@ -1,26 +1,10 @@
 # web_scraper.py
+import sqlite3
+
 import requests
 from bs4 import BeautifulSoup
 def scrape_property_data(city):
-    url = f"https://www.magicbricks.com/property-for-sale/residential-real-estate?cityName={city}"
-def insert_data_into_database(data):
-    try:
-        conn = sqlite3.connect('property_data.db')
-        cursor = conn.cursor()
-
-        for item in data:
-            cursor.execute('''
-                INSERT INTO properties (title, price, area, description)
-                VALUES (?, ?, ?, ?)
-            ''', item)
-
-        conn.commit()
-        conn.close()
-
-    except Exception as e:
-        print(f"An error occurred while inserting data into the database: {str(e)}")
-
-def scrape_property_data(url):
+    url = f"https://www.magicbricks.com/property-for-sale/residential-real-estate?bedroom=2,3&proptype=Multistorey-Apartment,Builder-Floor-Apartment,Penthouse,Studio-Apartment,Residential-House,Villa&cityName={city}"
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -52,7 +36,10 @@ def scrape_property_data(url):
         description_elements = soup.find_all(class_='two-line-truncated')
         descriptions = [element.get_text(strip=True)[:100] + '...' for element in description_elements]
 
-        data = list(zip(titles, prices, areas, descriptions))
+        highlight_elements = soup.find_all(class_='mb-srp__card__developer--name--highlight')
+        highlights = [element.get_text(strip=True)[:200] + '...' for element in highlight_elements]
+
+        data = list(zip(titles, prices, areas, descriptions,highlights))
         return data
 
     except requests.exceptions.RequestException as e:
