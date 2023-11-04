@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        <p>Results for {{ city }}:</p>
+        <ul>
+            {% for property in properties %}
+            <li>
+                <strong>{{ property.title }}</strong>
+                <p>Price: {{ property.price }}</p>
+                <p>Area: {{ property.area }}</p>
+                <img src="{{ property.image_url }}" alt="Property Image">
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="/">Back to Search</a>
+    </div>
+</body>
+</html>

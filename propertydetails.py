@@ -1,3 +1,5 @@
+from typing import List, Any
+
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -8,8 +10,10 @@ import time
 import pandas as pd
 
 
-def scrape_property_details(base_url, class_name_to_find, max_scrolls):
+def scrape_property_details(city, class_name_to_find, max_scrolls):
     # Set up Firefox options to run in headless mode and disable notifications
+    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
+
     options = webdriver.FirefoxOptions()
     options.add_argument('-headless')
     options.set_preference("dom.webnotifications.enabled", False)
@@ -57,8 +61,10 @@ def scrape_property_details(base_url, class_name_to_find, max_scrolls):
 
     return df
 
-def scrape_listing_urls(base_url, class_name_to_click, max_scrolls):
+def scrape_listing_urls(city, class_name_to_click, max_scrolls):
     # Set up Firefox options to run in headless mode and disable notifications
+    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
+
     options = webdriver.FirefoxOptions()
     options.add_argument('-headless')
     options.set_preference("dom.webnotifications.enabled", False)
@@ -98,28 +104,27 @@ def scrape_listing_urls(base_url, class_name_to_click, max_scrolls):
     return all_urls
 
 # Example usage in app.py
-if __name__ == "__main__":
-    base_url = 'https://www.commonfloor.com/listing-search?city=Mumbai&cg=Mumbai%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
-    class_name_to_find = 'impressionAd'
-    max_scrolls = 1
-
-    property_details_df = scrape_property_details(base_url, class_name_to_find, max_scrolls)
-
-    # Print the scraped property details
-    print(property_details_df.to_string())
-
-if __name__ == "__main__":
-    base_url = 'https://www.commonfloor.com/listing-search?city=Mumbai&cg=Mumbai%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
-    class_name_to_click = 'st_title'  # Replace with your desired class name
-    max_scrolls = 1
-
-    scraped_urls = scrape_listing_urls(base_url, class_name_to_click, max_scrolls)
-
-    # Print the scraped URLs
-    print(f"Total {len(scraped_urls)} URLs extracted:")
-    for url in scraped_urls:
-        print("Listing URL:", url)
-
+# if __name__ == "__main__":
+#     base_url = 'https://www.commonfloor.com/listing-search?city=Mumbai&cg=Mumbai%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
+#     class_name_to_find = 'impressionAd'
+#     max_scrolls = 1
+#
+#     property_details_df = scrape_property_details(base_url, class_name_to_find, max_scrolls)
+#
+#     # Print the scraped property details
+#     print(property_details_df.to_string())
+#
+# if __name__ == "__main__":
+#     base_url = 'https://www.commonfloor.com/listing-search?city=Mumbai&cg=Mumbai%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
+#     class_name_to_click = 'st_title'  # Replace with your desired class name
+#     max_scrolls = 1
+#
+#     scraped_urls: list[Any] = scrape_listing_urls(base_url, class_name_to_click, max_scrolls)
+#
+#     # Print the scraped URLs
+#     print(f"Total {len(scraped_urls)} URLs extracted:")
+#     for url in scraped_urls:
+#         print("Listing URL:", url)
 
 
 def scrape_data_from_urls(url_list):
@@ -129,11 +134,20 @@ def scrape_data_from_urls(url_list):
     # Set up Firefox driver
     driver = webdriver.Firefox()
 
+    # Initialize a set to keep track of visited URLs
+    visited_urls = set()
+
     # Loop through each URL
     for url in url_list:
+        if url in visited_urls:
+            continue  # Skip if the URL has already been visited
+
         try:
             # Open the URL
             driver.get(url)
+
+            # Add the URL to the visited set
+            visited_urls.add(url)
 
             # Wait for the element with the class name to become clickable
             class_selector = 'pnv-img-wraper'
@@ -150,15 +164,18 @@ def scrape_data_from_urls(url_list):
             class_name_to_find = 'cf-lazyload'  # Replace with your desired class name
             elements = driver.find_elements(By.CLASS_NAME, class_name_to_find)
 
-            # Filter img elements with URLs ending with .gif extension and extract their URLs
+            # Filter img elements with URLs ending with .gif extension and containing "plan" keyword
             gif_urls = []
             for element in elements:
                 img_url = element.get_attribute("src")
                 if img_url and img_url.endswith('.gif'):
                     gif_urls.append(img_url)
 
-            # Store the scraped data in a dictionary
-            scraped_data.append({ 'Floor plan URLs': gif_urls})
+            # Only store valid image URLs in the scraped data
+            if gif_urls:
+                scraped_data.append({'Floor plan URLs': gif_urls})
+            else:
+                scraped_data.append({'Floor plan URLs': ['No home plan for this property']})
         except (TimeoutException, NoSuchElementException) as e:
             print(f"Exception while processing URL {url}: {e}")
 
@@ -170,6 +187,8 @@ def scrape_data_from_urls(url_list):
 
     return df
 
-floorplan=scrape_data_from_urls(scraped_urls)
-print(floorplan.to_string())
+
+#
+# floorplan=scrape_data_from_urls(scraped_urls)
+# print(floorplan.to_string())
 

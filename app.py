@@ -1,10 +1,18 @@
-# app.py
 import time
 import sqlite3
-from flask import Flask, render_template, request, redirect, url_for
-from FloorPlanScrapper import scrape_property_data
+from flask import Flask, render_template, request
+from propertydetails import scrape_listing_urls, scrape_property_details, scrape_data_from_urls
+
 
 app = Flask(__name__)
+
+def get_properties_by_city(city):
+    conn = sqlite3.connect('property_data.db')  # Replace with your database name
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM properties WHERE title LIKE ?", ('%' + city + '%',))
+    properties = cursor.fetchall()
+    conn.close()
+    return properties
 
 # Function to create a SQLite database and table if they don't exist
 def initialize_database():
@@ -16,7 +24,7 @@ def initialize_database():
             title TEXT,
             price TEXT,
             area TEXT,
-            description TEXT
+            image_url varchar(500)
         )
     ''')
     conn.commit()
@@ -31,35 +39,47 @@ def insert_data_into_database(data):
         cursor = conn.cursor()
         for item in data:
             cursor.execute('''
-                INSERT OR IGNORE INTO properties (title, price, area, description)
+                INSERT OR IGNORE INTO properties (title, price, area, image_url)
                 VALUES (?, ?, ?, ?)
-            ''', item)
+            ''', (str(item['Title']), str(item['Price']), str(item['Area']), str(item.get('Image_URL', '')))
+            )
         conn.commit()
         conn.close()
     except Exception as e:
         print(f"An error occurred while inserting data into the database: {str(e)}")
 
+
 @app.route('/')
 def index():
-    return render_template('add_city.html')
+    return render_template('index.html')
+
+
+@app.route('/search', methods=['POST'])
+def search():
+    city = request.form.get('city')
+    print(f'Searching for city: {city}')
+
+    properties = get_properties_by_city(city)
+    print(f'Properties found: {properties}')
+
+    return render_template('results.html', city=city, properties=properties)
+
 
 @app.route('/scrape', methods=['POST'])
 def scrape():
     try:
         city = request.form['city']
         start_time = time.time()
-        scraped_data = []
-        while time.time() - start_time < 10 and len(scraped_data) < 1000:
-            new_data = scrape_property_data(city)
-            if not new_data:
-                break
-            scraped_data.extend(new_data)
-        
-        if scraped_data:
-            insert_data_into_database(scraped_data)
+        scraped_urls = scrape_listing_urls(city, 'st_title', max_scrolls=2)
+        scraped_data = scrape_property_details(city, 'impressionAd', max_scrolls=2)
+
+        if scraped_data is not None and not scraped_data.empty:
+            # Scrape image URLs
+            scraped_data['Image_URL'] = scrape_data_from_urls(scraped_urls)
+            insert_data_into_database(scraped_data.to_dict('records'))
             result = f'Scraped and saved {len(scraped_data)} data entries for {city} successfully.'
         else:
-            result = f'No data found for {city} within the time limit.'
+            result = f'No data found for {city}.'
 
     except Exception as e:
         result = f'Error: {str(e)}'
