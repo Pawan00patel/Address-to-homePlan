@@ -2,13 +2,11 @@
 import time
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for
-from web_scraper import scrape_property_data
+from FloorPlanScrapper import scrape_property_data
 
 app = Flask(__name__)
 
 # Function to create a SQLite database and table if they don't exist
-# ... (existing code)
-
 def initialize_database():
     conn = sqlite3.connect('property_data.db')
     cursor = conn.cursor()
@@ -18,8 +16,7 @@ def initialize_database():
             title TEXT,
             price TEXT,
             area TEXT,
-            description TEXT,
-            highlight TEXT UNIQUE
+            description TEXT
         )
     ''')
     conn.commit()
@@ -27,28 +24,16 @@ def initialize_database():
 
 initialize_database()
 
-# ... (rest of your code)
-
-
-# Function to insert data into the database
 # Function to insert data into the database
 def insert_data_into_database(data):
     try:
         conn = sqlite3.connect('property_data.db')
         cursor = conn.cursor()
         for item in data:
-            try:
-                # Check if a record with the same 'highlight' value exists
-                cursor.execute('SELECT id FROM properties WHERE highlight = ?', (item[4],))
-                existing_record = cursor.fetchone()
-                if not existing_record:
-                    cursor.execute('''
-                        INSERT INTO properties (title, price, area, description, highlight)
-                        VALUES (?, ?, ?, ?, ?)
-                    ''', item)
-            except sqlite3.IntegrityError:
-                # Handle potential IntegrityError if you have constraints on the database
-                pass
+            cursor.execute('''
+                INSERT OR IGNORE INTO properties (title, price, area, description)
+                VALUES (?, ?, ?, ?)
+            ''', item)
         conn.commit()
         conn.close()
     except Exception as e:
@@ -58,28 +43,21 @@ def insert_data_into_database(data):
 def index():
     return render_template('add_city.html')
 
-# ... (existing code)
-
 @app.route('/scrape', methods=['POST'])
 def scrape():
     try:
         city = request.form['city']
-
-        # Use a loop to scrape data from multiple pages or cities
-        all_scraped_data = []
-
-        for page in range(1, 10):  # Example: Scrape data from 5 pages
-            city_url = f"https://www.magicbricks.com/property-for-sale/residential-commercial-real-estate?proptype=Multistorey-Apartment,Builder-Floor-Apartment,Penthouse,Studio-Apartment,Residential-House,Villa,Residential-Plot,Commercial-Office-Space,Office-ITPark-SEZ,Commercial-Shop,Commercial-Showroom,Commercial-Land,Industrial-Land,Warehouse/Godown,Industrial-Building,Industrial-Shed&BudgetMin=50-Lacs&BudgetMax=1-Crores&cityName={city}&page={page}"
-            scraped_data = scrape_property_data(city_url)
-
-            if not scraped_data:
+        start_time = time.time()
+        scraped_data = []
+        while time.time() - start_time < 10 and len(scraped_data) < 1000:
+            new_data = scrape_property_data(city)
+            if not new_data:
                 break
-
-            all_scraped_data.extend(scraped_data)
-
-        if all_scraped_data:
-            insert_data_into_database(all_scraped_data)
-            result = f'Scraped and saved {len(all_scraped_data)} data entries for {city} successfully.'
+            scraped_data.extend(new_data)
+        
+        if scraped_data:
+            insert_data_into_database(scraped_data)
+            result = f'Scraped and saved {len(scraped_data)} data entries for {city} successfully.'
         else:
             result = f'No data found for {city} within the time limit.'
 
@@ -87,8 +65,6 @@ def scrape():
         result = f'Error: {str(e)}'
 
     return render_template('index.html', result=result)
-
-# ... (rest of your code)
 
 @app.route('/add_city')
 def add_city():
