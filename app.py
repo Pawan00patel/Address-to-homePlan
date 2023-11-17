@@ -22,6 +22,7 @@ def initialize_database():
         CREATE TABLE IF NOT EXISTS properties (
             id INTEGER PRIMARY KEY,
             title TEXT,
+            city_name TEXT,
             price TEXT,
             area TEXT,
             image_url varchar(500)
@@ -31,22 +32,22 @@ def initialize_database():
     conn.close()
 
 initialize_database()
-
-# Function to insert data into the database
 def insert_data_into_database(data):
     try:
         conn = sqlite3.connect('property_data.db')
         cursor = conn.cursor()
         for item in data:
             cursor.execute('''
-                INSERT OR IGNORE INTO properties (title, price, area, image_url)
-                VALUES (?, ?, ?, ?)
-            ''', (str(item['Title']), str(item['Price']), str(item['Area']), str(item.get('Image_URL', '')))
+                INSERT OR REPLACE INTO properties (id, title, city_name, price, area, image_url)
+                VALUES ((SELECT id FROM properties WHERE title = ? AND city_name = ?), ?, ?, ?, ?, ?)
+            ''', (str(item['Title']), str(item['City_name']), str(item['Title']), str(item['City_name']),
+                  str(item['Price']), str(item['Area']), str(item.get('Image_URL', '')))
             )
         conn.commit()
         conn.close()
     except Exception as e:
         print(f"An error occurred while inserting data into the database: {str(e)}")
+
 
 
 @app.route('/')
@@ -70,8 +71,8 @@ def scrape():
     try:
         city = request.form['city']
         start_time = time.time()
-        scraped_urls = scrape_listing_urls(city, 'st_title', max_scrolls=2)
-        scraped_data = scrape_property_details(city, 'impressionAd', max_scrolls=2)
+        scraped_urls = scrape_listing_urls(city, 'st_title', max_scrolls=1)
+        scraped_data = scrape_property_details(city, 'impressionAd', max_scrolls=1)
 
         if scraped_data is not None and not scraped_data.empty:
             # Scrape image URLs
