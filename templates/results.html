@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        <p>Results for {{ city }}:</p>
+      <ul>
+    {% for property in properties %}
+    <li>
+        <strong>{{ property[1] }}</strong>
+        <p>Price: {{ property[2] }}</p>
+        <p>Area: {{ property[3] }}</p>
+        {% for image_url in property[4].strip("[]").split(", ") %}
+            <img src="{{ image_url.strip('\'') }}" alt="Property Image">
+        {% endfor %}
+    </li>
+    {% endfor %}
+</ul>
+
+
+        <a href="/">Back to Search</a>
+    </div>
+</body>
+</html>
