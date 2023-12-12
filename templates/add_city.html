@@ -1,14 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Add City URL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; /* Set your background color here */
+        }
+
+        .container {
+            max-width: 100%;
+            height: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff; /* Set your content background color here */
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            position: relative;
+            background-color: #111;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #scrapeForm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        #cityInput {
+            padding: 40px;
+            font-size: 30px;
+
+        }
+
+        button {
+            margin-top:10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Set your button color here */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #scrapedDataContainer {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+/* Loading spinner styles */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.loading-spinner:before {
+    content: '';
+    box-sizing: border-box;
+    width: 60px;  /* Increase the size of the spinner */
+    height: 60px; /* Increase the size of the spinner */
+    border: 6px solid #ccc; /* Increase the thickness of the spinner */
+    border-top: 6px solid #4CAF50; /* Set your spinner color here */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+    .button-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50; /* Green */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    </style>
 </head>
+
 <body>
-    <h1>Add City URL</h1>
-    <form method="POST" action="/scrape">
-        <label for="city">Enter City Name:</label>
-        <input type="text" id="city" name="city" required>
-        <button type="submit">Scrape Data</button>
-    </form>
+
+    <div class="container">
+        <h1>Address to Home Plan</h1>
+
+        <form id="scrapeForm" method="POST" action="/scrape">
+            <input type="text" id="cityInput" name="city" placeholder="enter the city name">
+            <button type="button" onclick="scrapeData()">Search</button>
+            <a href="{{ url_for('homepage') }}" class="button-link">Go to Homepage</a>
+
+
+        </form>
+
+
+
+    </div>
+
+
+        <div id="scrapedDataContainer">
+            <!-- Display scraped data here -->
+        </div>
+
+
+    <script src="static/Main.js"></script>
 </body>
+
 </html>

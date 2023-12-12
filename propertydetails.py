@@ -12,7 +12,7 @@ import pandas as pd
 
 def scrape_property_details(city, class_name_to_find, max_scrolls):
     # Set up Firefox options to run in headless mode and disable notifications
-    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
+    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=5'
 
     options = webdriver.FirefoxOptions()
     options.add_argument('-headless')
@@ -39,6 +39,11 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
             title = title_element.text[:70]
 
             # Find the price within the element
+            city_element = driver.find_element(By.ID, 'snb_cn_id')
+
+            city_name = city_element.text
+
+            # Find the price within the element
             price_element = element.find_element(By.CLASS_NAME, 's_p')
             price = price_element.text
 
@@ -46,7 +51,7 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
             area_element = element.find_element(By.CLASS_NAME, 'infodata')
             area = area_element.text
 
-            property_data.append({'Title': title, 'Price': price, 'Area': area})
+            property_data.append({'Title': title,'City_name': city_name, 'Price': price, 'Area': area})
 
         # Scroll down to load more content
         driver.execute_script("window.scrollTo(1, document.body.scrollHeight);")
@@ -63,7 +68,7 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
 
 def scrape_listing_urls(city, class_name_to_click, max_scrolls):
     # Set up Firefox options to run in headless mode and disable notifications
-    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
+    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=5'
 
     options = webdriver.FirefoxOptions()
     options.add_argument('-headless')
@@ -191,4 +196,3 @@ def scrape_data_from_urls(url_list):
 #
 # floorplan=scrape_data_from_urls(scraped_urls)
 # print(floorplan.to_string())
-
