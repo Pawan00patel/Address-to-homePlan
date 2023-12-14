@@ -12,9 +12,9 @@
     {% for property in properties %}
     <li>
         <strong>{{ property[1] }}</strong>
-        <p>Price: {{ property[2] }}</p>
-        <p>Area: {{ property[3] }}</p>
-        {% for image_url in property[4].strip("[]").split(", ") %}
+        <p>Price: {{ property[3] }}</p>
+        <p>Area: {{ property[2] }}</p>
+        {% for image_url in property[5].strip("[]").split(", ") %}
             <img src="{{ image_url.strip('\'') }}" alt="Property Image">
         {% endfor %}
     </li>
