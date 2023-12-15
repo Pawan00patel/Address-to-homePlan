@@ -1,27 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="your-existing-css-file.css"> <!-- Add the link to your existing CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Your existing CSS styles here */
+        .header{
+        height:300px;
+        width:100%;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .property-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: space-evenly;
+        }
+
+        .property-card {
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .property-card:hover {
+            transform: scale(1.02);
+        }
+
+        .property-image-container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .property-details {
+            padding: 15px;
+        }
+
+        .property-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .property-info {
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .property-price {
+            font-size: 25px;
+            font-weight: bold;
+            color: #e44d26;
+        }
+
+        .property-details .get-location-button {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.property-details .get-location-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWv..."></script>
 </head>
 <body>
+
     <div class="container">
         <h1>Search Results</h1>
         <p>Results for {{ city }}:</p>
-      <ul>
-    {% for property in properties %}
-    <li>
-        <strong>{{ property[1] }}</strong>
-        <p>Price: {{ property[3] }}</p>
-        <p>Area: {{ property[2] }}</p>
-        {% for image_url in property[5].strip("[]").split(", ") %}
-            <img src="{{ image_url.strip('\'') }}" alt="Property Image">
-        {% endfor %}
-    </li>
-    {% endfor %}
-</ul>
+        <button class="back-button" onclick="goBack()">Back</button>
+         <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+        <div class="header"> </div>
+        <div class="property-cards">
+            {% for property in properties %}
+            <div class="property-card">
+                <div class="property-image-container">
+                    {% set image_list = property[5].strip('[]').split(', ') %}
+                    {% for image_url in image_list %}
+                        {% set image_url = image_url.strip('\'') %}
+                        <a href="{{ image_url }}" data-lightbox="{{ property[1] }}">
+                            <img class="property-image" src="{{ image_url }}" alt="Property Image">
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="property-details">
+                    <div class="property-title">{{ property[1] }}</div>
+                    <div class="property-info">Area: {{ property[4] }}</div>
+                    <div class="property-city">city: {{ property[2] }}</div>
+                    <div class="property-price">Price: {{ property[3] }}</div>
+          <form id="googleMapsForm" action="https://www.google.com/maps" method="get" target="_blank">
+        <input type="hidden" name="q" id="locationInput" value="{{ property[1] }}, {{ property[2] }}">
+        <button type="submit" class="get-location-button" onclick="openGoogleMaps('{{ property[1] }}, {{ property[2] }}', 15)">Get Location</button>
+    </form>
+</div>
+
+<script>
+    function openGoogleMaps(searchLocation, zoomLevel) {
+        // Set the value of the hidden input field
+        document.getElementById('locationInput').value = searchLocation;
+
+        // Construct the Google Maps URL with the search location and zoom level
+        var mapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(searchLocation)}&z=${zoomLevel}`;
+
+        // Open the URL in a new tab or window
+        window.open(mapsUrl, '_blank');
+    }
+</script>
+<!-- ... (remaining HTML code) ... -->
 
 
+            </div>
+            {% endfor %}
+        </div>
         <a href="/">Back to Search</a>
     </div>
 </body>

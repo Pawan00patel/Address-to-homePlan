@@ -1,14 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Add City URL</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePlan Hub</title>
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f7ff; /* Light blue background color */
+            color: #333; /* Default text color */
+        }
+
+        .hero-banner {
+<!--            background: url('https://static.vecteezy.com/system/resources/previews/003/700/614/large_2x/attractive-young-female-house-realtor-or-real-estate-agent-holding-house-keys-chain-and-house-model-blurred-background-free-photo.jpg') center center fixed;-->
+            background-size: cover;
+            height: 400px; /* Adjust the height as needed */
+            border-radius: 0 0 20px 20px; /* Rounded corners at the bottom */
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #2980b9; /* Dark blue text color for the hero content */
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2980b9; /* Dark blue text color for the hero content */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -20px auto 50px auto; /* Adjust margin for better alignment */
+            text-align: center;
+            padding: 40px;
+            background-color: #ffffff; /* White content background */
+            background-image: url('https://www.shutterstock.com/image-vector/abstract-wireframe-city-background-perspective-260nw-1121001956.jpg');
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #333; /* Dark color for headings */
+        }
+
+        #scrapeForm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555; /* Dark gray for labels */
+        }
+
+        #cityInput {
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green button color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        #scrapedDataContainer {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Loading spinner styles */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .loading-spinner:before {
+            content: '';
+            box-sizing: border-box;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #ccc;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Add City URL</h1>
-    <form method="POST" action="/scrape">
-        <label for="city">Enter City Name:</label>
-        <input type="text" id="city" name="city" required>
-        <button type="submit">Scrape Data</button>
-    </form>
+
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1>Your Dream Home Awaits</h1>
+            <p>Explore, Plan, and Design the Perfect Home for You</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Address to Home Plan</h1>
+
+        <form id="scrapeForm" method="POST" action="/scrape">
+            <label for="cityInput">Enter the city name:</label>
+            <input type="text" id="cityInput" name="city" placeholder="City" required>
+            <button type="button" onclick="scrapeData()">Search</button>
+            <a href="{{ url_for('homepage') }}" class="button-link">Go to Homepage</a>
+        </form>
+
+    </div>
+
+    <div id="scrapedDataContainer">
+        <!-- Display scraped data here -->
+    </div>
+
+    <script src="static/Main.js"></script>
 </body>
+
 </html>
