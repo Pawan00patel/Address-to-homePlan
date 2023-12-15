@@ -12,7 +12,7 @@ import pandas as pd
 
 def scrape_property_details(city, class_name_to_find, max_scrolls):
     # Set up Firefox options to run in headless mode and disable notifications
-    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=5'
+    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=10'
 
     options = webdriver.FirefoxOptions()
     options.add_argument('-headless')
@@ -68,7 +68,7 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
 
 def scrape_listing_urls(city, class_name_to_click, max_scrolls):
     # Set up Firefox options to run in headless mode and disable notifications
-    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=5'
+    base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=10'
 
     options = webdriver.FirefoxOptions()
     options.add_argument('-headless')
@@ -195,8 +195,6 @@ def scrape_data_from_urls(url_list):
 
 #
 # floorplan=scrape_data_from_urls(scraped_urls)
-<<<<<<< HEAD
 # print(floorplan.to_string())
-=======
 # print(floorplan.to_string())
->>>>>>> 9a060d444d6325917e9522759db4f729ad8eed98
+

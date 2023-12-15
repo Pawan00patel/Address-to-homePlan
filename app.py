@@ -14,9 +14,8 @@ def get_properties_by_city(city: object):
     return properties
 
 # Function to create a SQLite database and table if they don't exist
-<<<<<<< HEAD
+
 import sqlite3
-=======
 def initialize_database():
     conn = sqlite3.connect('property_data.db')
     cursor = conn.cursor()
@@ -32,31 +31,9 @@ def initialize_database():
     ''')
     conn.commit()
     conn.close()
->>>>>>> 9a060d444d6325917e9522759db4f729ad8eed98
-
-def initialize_database():
-
-        conn = sqlite3.connect('property_data.db')
-        cursor = conn.cursor()
-        cursor.execute('''
-            CREATE TABLE IF NOT EXISTS properties (
-                id INTEGER PRIMARY KEY,
-                title TEXT,
-                city_name TEXT,
-                price TEXT,
-                area TEXT,
-                image_url varchar(500)
-            )
-        ''')
-        conn.commit()
-        conn.close()
-
 # Call the function to initialize the database
 initialize_database()
-<<<<<<< HEAD
 
-=======
->>>>>>> 9a060d444d6325917e9522759db4f729ad8eed98
 def insert_data_into_database(data):
     try:
         conn = sqlite3.connect('property_data.db')
@@ -104,10 +81,8 @@ def scrape():
     global scraped_data, city
     try:
         city = request.form['city']
-<<<<<<< HEAD
-=======
-        start_time = time.time()
->>>>>>> 9a060d444d6325917e9522759db4f729ad8eed98
+
+        # start_time = time.time()
         scraped_urls = scrape_listing_urls(city, 'st_title', max_scrolls=1)
         scraped_data = scrape_property_details(city, 'impressionAd', max_scrolls=1)
 
