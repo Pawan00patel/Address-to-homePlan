@@ -196,5 +196,3 @@ def scrape_data_from_urls(url_list):
 #
 # floorplan=scrape_data_from_urls(scraped_urls)
 # print(floorplan.to_string())
-# print(floorplan.to_string())
-

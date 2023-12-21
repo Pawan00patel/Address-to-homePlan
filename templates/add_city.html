@@ -4,32 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Website</title>
+    <title>HomePlan Hub</title>
     <style>
 
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4; /* Set your background color here */
+            background-color: #e6f7ff; /* Light blue background color */
+            color: #333; /* Default text color */
+        }
+
+        .hero-banner {
+<!--            background: url('https://static.vecteezy.com/system/resources/previews/003/700/614/large_2x/attractive-young-female-house-realtor-or-real-estate-agent-holding-house-keys-chain-and-house-model-blurred-background-free-photo.jpg') center center fixed;-->
+            background-size: cover;
+            height: 400px; /* Adjust the height as needed */
+            border-radius: 0 0 20px 20px; /* Rounded corners at the bottom */
+            overflow: hidden;
+            position: relative;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #2980b9; /* Dark blue text color for the hero content */
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #2980b9; /* Dark blue text color for the hero content */
         }
 
         .container {
-            max-width: 100%;
-            height: 300px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: -20px auto 50px auto; /* Adjust margin for better alignment */
             text-align: center;
-            padding: 20px;
-            background-color: #fff; /* Set your content background color here */
-            border-radius: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 50px;
+            padding: 40px;
+            background-color: #ffffff; /* White content background */
+            background-image: url('https://www.shutterstock.com/image-vector/abstract-wireframe-city-background-perspective-260nw-1121001956.jpg');
+            background-size: cover;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             position: relative;
-            background-color: #111;
+            z-index: 2;
         }
 
         h1 {
-            color: white;
+            color: #333; /* Dark color for headings */
         }
 
         #scrapeForm {
@@ -43,23 +74,34 @@
         label {
             margin-bottom: 10px;
             font-weight: bold;
+            color: #555; /* Dark gray for labels */
         }
 
         #cityInput {
-            padding: 40px;
-            font-size: 30px;
-
+            padding: 15px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 15px;
         }
 
         button {
-            margin-top:10px;
-            padding: 10px;
+            padding: 15px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #4CAF50; /* Set your button color here */
+            background-color: #4CAF50; /* Green button color */
             color: #fff;
             border: none;
             border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
         }
 
         #scrapedDataContainer {
@@ -67,73 +109,74 @@
             text-align: left;
         }
 
-/* Loading spinner styles */
-.loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-}
+        /* Loading spinner styles */
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
 
-.loading-spinner:before {
-    content: '';
-    box-sizing: border-box;
-    width: 60px;  /* Increase the size of the spinner */
-    height: 60px; /* Increase the size of the spinner */
-    border: 6px solid #ccc; /* Increase the thickness of the spinner */
-    border-top: 6px solid #4CAF50; /* Set your spinner color here */
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
+        .loading-spinner:before {
+            content: '';
+            box-sizing: border-box;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #ccc;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-    .button-link {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #4CAF50; /* Green */
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
+        .button-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
 
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h1>Your Dream Home Awaits</h1>
+            <p>Explore, Plan, and Design the Perfect Home for You</p>
+        </div>
+    </div>
+
     <div class="container">
         <h1>Address to Home Plan</h1>
 
         <form id="scrapeForm" method="POST" action="/scrape">
-            <input type="text" id="cityInput" name="city" placeholder="enter the city name">
+            <label for="cityInput">Enter the city name:</label>
+            <input type="text" id="cityInput" name="city" placeholder="City" required>
             <button type="button" onclick="scrapeData()">Search</button>
             <a href="{{ url_for('homepage') }}" class="button-link">Go to Homepage</a>
-
-
         </form>
-
-
 
     </div>
 
-
-        <div id="scrapedDataContainer">
-            <!-- Display scraped data here -->
-        </div>
-
+    <div id="scrapedDataContainer">
+        <!-- Display scraped data here -->
+    </div>
 
     <script src="static/Main.js"></script>
 </body>

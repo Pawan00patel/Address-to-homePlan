@@ -1,3 +1,5 @@
+import sqlite3
+
 import pandas as pd
 from flask import Flask, request
 from flask import render_template
@@ -14,8 +16,6 @@ def get_properties_by_city(city: object):
     return properties
 
 # Function to create a SQLite database and table if they don't exist
-
-import sqlite3
 def initialize_database():
     conn = sqlite3.connect('property_data.db')
     cursor = conn.cursor()
@@ -31,9 +31,26 @@ def initialize_database():
     ''')
     conn.commit()
     conn.close()
+
+def initialize_database():
+
+        conn = sqlite3.connect('property_data.db')
+        cursor = conn.cursor()
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS properties (
+                id INTEGER PRIMARY KEY,
+                title TEXT,
+                city_name TEXT,
+                price TEXT,
+                area TEXT,
+                image_url varchar(500)
+            )
+        ''')
+        conn.commit()
+        conn.close()
+
 # Call the function to initialize the database
 initialize_database()
-
 def insert_data_into_database(data):
     try:
         conn = sqlite3.connect('property_data.db')
@@ -81,7 +98,6 @@ def scrape():
     global scraped_data, city
     try:
         city = request.form['city']
-
         # start_time = time.time()
         scraped_urls = scrape_listing_urls(city, 'st_title', max_scrolls=1)
         scraped_data = scrape_property_details(city, 'impressionAd', max_scrolls=1)

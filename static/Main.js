@@ -104,12 +104,15 @@ function decodeEntities(text) {
 // You can customize these styles further based on your design preferences
 const style = document.createElement("style");
 style.innerHTML = `
-  .card-container {
+.card-container {
     height: 1000px;
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    margin-right: 20px; /* Add margin to the right */
-  }
+    width: 50%;
+    overflow-x: auto;
+    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
   .property-card {
     display: flex;

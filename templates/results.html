@@ -72,6 +72,20 @@
             font-weight: bold;
             color: #e44d26;
         }
+
+        .property-details .get-location-button {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    padding: 10px 15px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor on hover */
+}
+
+.property-details .get-location-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWv..."></script>
 </head>
@@ -80,6 +94,12 @@
     <div class="container">
         <h1>Search Results</h1>
         <p>Results for {{ city }}:</p>
+        <button class="back-button" onclick="goBack()">Back</button>
+         <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
         <div class="header"> </div>
         <div class="property-cards">
             {% for property in properties %}
@@ -96,8 +116,29 @@
                 <div class="property-details">
                     <div class="property-title">{{ property[1] }}</div>
                     <div class="property-info">Area: {{ property[4] }}</div>
+                    <div class="property-city">city: {{ property[2] }}</div>
                     <div class="property-price">Price: {{ property[3] }}</div>
-                </div>
+          <form id="googleMapsForm" action="https://www.google.com/maps" method="get" target="_blank">
+        <input type="hidden" name="q" id="locationInput" value="{{ property[1] }}, {{ property[2] }}">
+        <button type="submit" class="get-location-button" onclick="openGoogleMaps('{{ property[1] }}, {{ property[2] }}', 15)">Get Location</button>
+    </form>
+</div>
+
+<script>
+    function openGoogleMaps(searchLocation, zoomLevel) {
+        // Set the value of the hidden input field
+        document.getElementById('locationInput').value = searchLocation;
+
+        // Construct the Google Maps URL with the search location and zoom level
+        var mapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(searchLocation)}&z=${zoomLevel}`;
+
+        // Open the URL in a new tab or window
+        window.open(mapsUrl, '_blank');
+    }
+</script>
+<!-- ... (remaining HTML code) ... -->
+
+
             </div>
             {% endfor %}
         </div>
