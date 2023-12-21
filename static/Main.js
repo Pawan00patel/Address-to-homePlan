@@ -1,5 +1,3 @@
-
-
 // Function to handle scraping data
 function scrapeData() {
     const cityInput = document.getElementById('cityInput').value;
@@ -27,7 +25,6 @@ function scrapeData() {
         scrapedDataContainer.innerHTML = `<p>Error scraping data: ${error.message || 'Unknown error'}</p>`;
     });
 }
-
 
 // Function to update the DOM with scraped data
 function updateScrapedData(data) {
@@ -83,6 +80,16 @@ function updateScrapedData(data) {
                 card.appendChild(cardItem);
             }
 
+            // Add "Get Location" button
+            const getLocationButton = document.createElement("button");
+            getLocationButton.textContent = "Get Location";
+            getLocationButton.addEventListener("click", () => {
+                // Modify this function to fetch and display location data
+                getLocation(property[properties.columns.indexOf("Title")], property[properties.columns.indexOf("City_name")]);
+            });
+
+            card.appendChild(getLocationButton);
+
             cardContainer.appendChild(card);
         });
 
@@ -90,18 +97,26 @@ function updateScrapedData(data) {
     }
 }
 
+// Modified getLocation function to open Google Maps in a new window
+function getLocation(title, city) {
+    // Modify this function to fetch and display location data
+    console.log("Getting location for:", title, city);
+
+    // Construct Google Maps search query
+    const searchQuery = `${title} ${city}`;
+    const googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(searchQuery)}`;
+
+    // Open Google Maps in a new window
+    window.open(googleMapsUrl, '_blank');
+}
 
 function decodeEntities(text) {
   const element = document.createElement("div");
   element.innerHTML = text;
   return element.textContent;
 }
+
 // Add some CSS styles for the cards
-// You can customize these styles further based on your design preferences
-// Add some CSS styles for the cards
-// You can customize these styles further based on your design preferences
-// Add some CSS styles for the cards
-// You can customize these styles further based on your design preferences
 const style = document.createElement("style");
 style.innerHTML = `
   .card-container {
@@ -136,6 +151,7 @@ style.innerHTML = `
   }
 
   .image-container img {
+  .image-container img {
     max-width: 100%;
     max-height: 600px; /* Adjust the max height as needed */
     object-fit: cover;
@@ -144,8 +160,3 @@ style.innerHTML = `
 `;
 
 document.head.appendChild(style);
-
-
-
-
-
