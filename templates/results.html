@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="your-existing-css-file.css"> <!-- Add the link to your existing CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" integrity="sha512-Woz+DqWYJ51bpVk5Fv0yES/edIMXjj3Ynda+KWTIkGoynAMHrqTcDUQltbipuiaD5ymEo9520lyoVOo9jCQOCA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+    body
+    {
+    background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
         /* Your existing CSS styles here */
         .header{
         height:300px;
@@ -24,6 +32,7 @@
             flex-wrap: wrap;
             gap: 50px;
             justify-content: space-evenly;
+
         }
 
         .property-card {
@@ -33,6 +42,7 @@
             width: 300px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease-in-out;
+            background: black;
         }
 
         .property-card:hover {
@@ -59,11 +69,12 @@
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 20px;
+            color: white;
         }
 
         .property-info {
             font-size: 15px;
-            color: #666;
+            color: white;
             margin-bottom: 8px;
         }
 
@@ -85,6 +96,14 @@
 .property-details .get-location-button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
+.back-button{
+width:300px;
+background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; /* Green button color */
+}
+
 
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" integrity="sha512-Ixzuzfxv1EqafeQlTCufWfaC6ful6WFqIz4G+dWv..."></script>

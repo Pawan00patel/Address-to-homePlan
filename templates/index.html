@@ -3,7 +3,10 @@
 
 <style>
     body {
-        background-color: #e6f7ff;
+        background: #000428;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /* Light blue background color */
         font-family: Arial, sans-serif;
         color: #333; /* Text color */
         margin: 0; /* Remove default margin */
@@ -14,23 +17,26 @@
     }
 
     .container {
-        max-width: 600px;
+        margin-top:20px;
+        width: 50%;
         padding: 20px;
         background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        box-shadow: 0 0 10px grey;
         background-image: url('https://www.shutterstock.com/image-vector/krakow-mapa-cracow-poland-vector-260nw-1689236293.jpg');
         background-size: cover;
         background-position: center;
     }
 
     h1 {
-        color: #800080; /* Dark purple color for heading */
-        font-size: 28px; /* Increase font size */
-        font-style: italic; /* Make the text italic */
-        text-align: center; /* Center-align the text */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
-    }
+    color: #800080; /* Dark purple color for heading */
+    font-size: 28px; /* Increase font size */
+    font-style: italic; /* Make the text italic */
+    text-align: center; /* Center-align the text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle text shadow */
+    text-transform: uppercase; /* Convert text to uppercase */
+}
+
 
     form {
         margin-top: 20px;
@@ -46,7 +52,10 @@
 
     button.search_btn {
         padding: 10px;
-        background-color: #BA55D3; /* Light purple color for the Search button */
+        background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; /* Green button color */
         color: white;
         border: none;
         border-radius: 4px;
@@ -55,7 +64,10 @@
 
     button.back-button {
         margin-top: 10px;
-        background-color: #BA68C8; /* Red color for the Back button */
+       background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; /* Green button color */
         color: white;
     }
 </style>

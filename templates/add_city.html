@@ -11,7 +11,10 @@
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #e6f7ff; /* Light blue background color */
+            background: #000428;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            /* Light blue background color */
             color: #333; /* Default text color */
         }
 
@@ -22,7 +25,7 @@
             border-radius: 0 0 20px 20px; /* Rounded corners at the bottom */
             overflow: hidden;
             position: relative;
-            color: #fff;
+            color: white;
             text-align: center;
             display: flex;
             align-items: center;
@@ -34,15 +37,15 @@
         }
 
         .hero-content h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #2980b9; /* Dark blue text color for the hero content */
+            font-size: 60px;
+            margin-bottom: 15px;
+            color: white; /* Dark blue text color for the hero content */
         }
 
         .hero-content p {
-            font-size: 18px;
+            font-size: 25px;
             margin-bottom: 20px;
-            color: #2980b9; /* Dark blue text color for the hero content */
+            color: white; /* Dark blue text color for the hero content */
         }
 
         .container {
@@ -91,17 +94,20 @@
             padding: 15px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #4CAF50; /* Green button color */
+            background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; /* Green button color */
             color: #fff;
             border: none;
             border-radius: 5px;
-            width: 100%;
+            width: 300px;
             box-sizing: border-box;
             transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background-color: red; /* Darker green on hover */
         }
 
         #scrapedDataContainer {
@@ -141,7 +147,10 @@
         .button-link {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background: #000428;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+; /* Green button color */
             color: white;
             text-align: center;
             text-decoration: none;
