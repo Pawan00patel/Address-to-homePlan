@@ -119,12 +119,15 @@ function decodeEntities(text) {
 // Add some CSS styles for the cards
 const style = document.createElement("style");
 style.innerHTML = `
-  .card-container {
+.card-container {
     height: 1000px;
-    width: 100%;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    margin-right: 20px; /* Add margin to the right */
-  }
+    width: 50%;
+    overflow-x: auto;
+    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
   .property-card {
     display: flex;
