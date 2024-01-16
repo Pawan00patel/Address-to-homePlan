@@ -16,7 +16,7 @@ if response.status_code == 200:
     soup = BeautifulSoup(response.content, 'html.parser')
 
     # Find all elements with the specified class
-    developer_links = soup.find_all(class_='mb-srp_card_developer')
+    developer_links = soup.find_all(class_='mb-srp__card__developer')
 
     # Print all developer links first
     for link in developer_links:
@@ -47,20 +47,20 @@ if response.status_code == 200:
             EC.presence_of_element_located((By.CLASS_NAME, 'gallery-modal__nav'))
         )
 
-        # Find all elements with the specified class under gallery-modal_nav_item using XPath
-        nav_items = driver.find_elements(By.CLASS_NAME, 'gallery-modal_nav_item')
+        # Find all elements with the specified class under gallery-modal__nav__item using XPath
+        nav_items = driver.find_elements(By.CLASS_NAME, 'gallery-modal__nav__item')
 
         # Click on the first nav_item (assuming the first one is what you need)
         if nav_items:
             nav_items[4].click()
 
-        # Wait for the gallery-modal_slider_img-wrap class to be present
+        # Wait for the gallery-modal__slider__img-wrap class to be present
         WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, 'gallery-modal_slider_img-wrap'))
+            EC.presence_of_element_located((By.CLASS_NAME, 'gallery-modal__slider__img-wrap'))
         )
 
-        # Find the element with the specified class under gallery-modal_slider_img-wrap
-        img_wrap = driver.find_element_by_class_name('gallery-modal_slider_img-wrap')
+        # Find the element with the specified class under gallery-modal__slider__img-wrap
+        img_wrap = driver.find_element_by_class_name('gallery-modal__slider__img-wrap')
         img_url = img_wrap.find_element_by_tag_name('img')['src']
         print(f"Floor Plan Image URL: {img_url}")
 
