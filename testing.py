@@ -18,11 +18,17 @@ def get_text_or_na(element, selector):
 
 def scroll_down(driver):
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)  # Adjust this sleep time based on your observations
+    time.sleep(5)  # Adjust this sleep time based on your observations
 
 def scrape_magicbricks_data(url, max_items, driver=None):
-    driver = webdriver.Chrome()
-    driver.get(url)
+    try:
+
+        driver = webdriver.Chrome()
+        driver.get(url)
+        WebDriverWait(driver, 10)
+
+    except Exception as e:
+        print(f"Error: {str(e)}")
 
     # Scroll down until the desired number of items are loaded
     while len(driver.find_elements(By.CSS_SELECTOR, '.mb-srp__card')) <= max_items:
@@ -67,8 +73,12 @@ def scrape_magicbricks_data(url, max_items, driver=None):
 
 def get_developer_links(url, max_items):
     developer_links = []
-    driver = webdriver.Chrome()
-    driver.get(url)
+    try:
+        driver = webdriver.Chrome()
+        driver.get(url)
+
+    except Exception as e:
+        print(f"Error: {str(e)}")
 
     # Scroll down until the desired number of items are loaded
     while len(driver.find_elements(By.CSS_SELECTOR, '.mb-srp__card')) <= max_items:
@@ -89,8 +99,13 @@ def get_developer_links(url, max_items):
 
 def scrape_all_images(href):
     global  driver
-    driver = webdriver.Chrome()
-    driver.get(href)
+
+    try:
+        driver = webdriver.Chrome()
+        driver.get(href)
+    except Exception as e:
+        print(f"Error: {str(e)}")
+
 
     # Wait for the img-block class to be clickable
     class_selector = 'img-block'
@@ -118,7 +133,7 @@ def scrape_all_images(href):
                 if "Floor-Plan" in img_url:
                     # print(f"Image URL with Floor-Plan: {img_url}")
                     floor_plan_count += 1
-                    if floor_plan_count >= 4:
+                    if floor_plan_count >= 2:
                         break
                     img_data.append(img_url)
 
