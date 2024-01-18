@@ -10,7 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 
 
-
 def get_text_or_na(element, selector):
     try:
         return element.select_one(selector).get_text(strip=True)
@@ -22,6 +21,7 @@ def scroll_down(driver):
     time.sleep(2)  # Adjust this sleep time based on your observations
 
 def scrape_magicbricks_data(url, max_items, driver=None):
+    driver = webdriver.Chrome()
     driver.get(url)
 
     # Scroll down until the desired number of items are loaded
@@ -65,8 +65,9 @@ def scrape_magicbricks_data(url, max_items, driver=None):
 
     return df
 
-def get_developer_links(driver, url, max_items):
+def get_developer_links(url, max_items):
     developer_links = []
+    driver = webdriver.Chrome()
     driver.get(url)
 
     # Scroll down until the desired number of items are loaded
@@ -86,7 +87,9 @@ def get_developer_links(driver, url, max_items):
         print(f"Error: {e}")
         return developer_links
 
-def scrape_all_images(driver, href):
+def scrape_all_images(href):
+    global  driver
+    driver = webdriver.Chrome()
     driver.get(href)
 
     # Wait for the img-block class to be clickable

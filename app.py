@@ -4,12 +4,13 @@ import pandas as pd
 from flask import Flask, request
 from flask import render_template
 from selenium.webdriver.chrome import webdriver
+from selenium.webdriver.chrome.webdriver import Chrome, WebDriver
 
 from propertydetails import scrape_listing_urls, scrape_property_details, scrape_data_from_urls
 from testing import scrape_magicbricks_data, get_developer_links, scrape_all_images
 
 app = Flask(__name__)
-
+driver: WebDriver = None
 def get_properties_by_city(city: object):
     conn = sqlite3.connect('property_data.db')
     cursor = conn.cursor()
@@ -146,16 +147,17 @@ def main():
     developer_links = get_developer_links(magicbricks_url, max_items)
     # print(developer_links)
     print(len(developer_links))
+    
 
     if developer_links:
         # Ensure you have the same number of developer links as the number of data extracted
         developer_links = developer_links[:max_items]
 
-        driver = webdriver.Chrome()
+        drivers: Chrome=webdriver.Chrome()
 
         for i, link in enumerate(developer_links, start=1):
             # print(f"{i} URL: {link}")
-            img_df = scrape_all_images(driver, link)
+            img_df = scrape_all_images(link)
 
             # Ensure the index is within the bounds of image_urls_list
             if i - 1 < len(image_urls_list):
@@ -166,7 +168,7 @@ def main():
                 else:
                     print(f"No images found for {link}")
 
-        driver.quit()
+        drivers.quit()
 
     # Ensure the lengths match by extending the result_df index
     result_df.index = range(len(result_df))
@@ -187,7 +189,7 @@ def main():
         }
     }
 
-    print(final_data)
+    return final_data
 
 
 
@@ -209,3 +211,4 @@ def view_data():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    driver.quit()
