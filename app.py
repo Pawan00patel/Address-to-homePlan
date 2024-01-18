@@ -137,7 +137,7 @@ def scrape():
 def main():
     city = request.form['city']
     magicbricks_url = f"https://www.magicbricks.com/property-for-sale/residential-real-estate?bedroom=&proptype=Multistorey-Apartment,Builder-Floor-Apartment,Penthouse,Studio-Apartment,Residential-House,Villa&cityName={city}"
-    max_items = 3
+    max_items = 5
     result_df = scrape_magicbricks_data(magicbricks_url, max_items)
     # print(result_df)
 
@@ -188,7 +188,7 @@ def main():
             'data': result_df.values.tolist()
         }
     }
-
+    print(f"Data sent to client: {final_data}")
     return final_data
 
 
