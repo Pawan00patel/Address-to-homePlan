@@ -26,6 +26,36 @@ function scrapeData() {
     });
 }
 
+
+function scrapeMagicBricksData() {
+    const cityInput = document.getElementById('cityInput').value;
+    const source = 'magicbricks';  // Add a parameter for the source
+
+    fetch('/scrapemagicbriks', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `city=${cityInput}&source=${source}`,  // Include the source parameter in the request
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Network response was not ok (${response.status})`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("MagicBricks Data received:", data);
+        updateScrapedData(data);
+    })
+    .catch(error => {
+        console.error('Error scraping MagicBricks data:', error);
+        // Display an error message in the container
+        const scrapedDataContainer = document.getElementById('scrapedDataContainer');
+        scrapedDataContainer.innerHTML = `<p>Error scraping MagicBricks data: ${error.message || 'Unknown error'}</p>`;
+    });
+}
+
 // Function to update the DOM with scraped data
 function updateScrapedData(data) {
     console.log("Received data:", data);

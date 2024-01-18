@@ -161,7 +161,6 @@ background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, F
         }
     </style>
 </head>
-
 <body>
 
     <div class="hero-banner">
@@ -177,7 +176,14 @@ background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, F
         <form id="scrapeForm" method="POST" action="/scrape">
             <label for="cityInput">Enter the city name:</label>
             <input type="text" id="cityInput" name="city" placeholder="City" required>
-            <button type="button" onclick="scrapeData()">Search</button>
+
+            <label for="sourceSelect">Select source:</label>
+            <select id="sourceSelect" name="source">
+                <option value="magicbricks">Magicbricks</option>
+                <option value="commonfloor">Commonfloor</option>
+            </select>
+
+            <button type="button" onclick="selectAndScrape()">Search</button>
             <a href="{{ url_for('homepage') }}" class="button-link">Go to Homepage</a>
         </form>
 
@@ -188,6 +194,20 @@ background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, F
     </div>
 
     <script src="static/Main.js"></script>
+
+    <script>
+        function selectAndScrape() {
+            const selectedSource = document.getElementById('sourceSelect').value;
+            if (selectedSource === 'magicbricks') {
+                scrapeMagicBricksData();
+            } else if (selectedSource === 'commonfloor') {
+                scrapeData();
+            } else {
+                console.error('Invalid source selected');
+            }
+        }
+    </script>
 </body>
 
 </html>
+

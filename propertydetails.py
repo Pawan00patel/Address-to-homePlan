@@ -2,24 +2,23 @@ from typing import List, Any
 
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import pandas as pd
 
-
 def scrape_property_details(city, class_name_to_find, max_scrolls):
-    # Set up Firefox options to run in headless mode and disable notifications
+    # Set up Chrome options to run in headless mode and disable notifications
     base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=10'
 
-    options = webdriver.FirefoxOptions()
-    options.add_argument('-headless')
-    options.set_preference("dom.webnotifications.enabled", False)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--disable-notifications')
 
-    # Set up Firefox driver with the configured options
-    driver = webdriver.Firefox(options=options)
+    # Set up Chrome driver with the configured options
+    driver = webdriver.Chrome(options=options, service=ChromeService())
 
     # Open the base URL
     driver.get(base_url)
@@ -40,7 +39,6 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
 
             # Find the price within the element
             city_element = driver.find_element(By.ID, 'snb_cn_id')
-
             city_name = city_element.text
 
             # Find the price within the element
@@ -57,7 +55,6 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
         driver.execute_script("window.scrollTo(1, document.body.scrollHeight);")
         time.sleep(2)  # Increase sleep time to ensure full page load
 
-
     # Close the browser when done
     driver.quit()
 
@@ -67,15 +64,15 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
     return df
 
 def scrape_listing_urls(city, class_name_to_click, max_scrolls):
-    # Set up Firefox options to run in headless mode and disable notifications
+    # Set up Chrome options to run in headless mode and disable notifications
     base_url = f'https://www.commonfloor.com/listing-search?city={city}&cg={city}%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=10'
 
-    options = webdriver.FirefoxOptions()
-    options.add_argument('-headless')
-    options.set_preference("dom.webnotifications.enabled", False)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument('--disable-notifications')
 
-    # Set up Firefox driver with the configured options
-    driver = webdriver.Firefox(options=options)
+    # Set up Chrome driver with the configured options
+    driver = webdriver.Chrome(options=options, service=ChromeService())
 
     # Open the base URL
     driver.get(base_url)
@@ -108,36 +105,12 @@ def scrape_listing_urls(city, class_name_to_click, max_scrolls):
 
     return all_urls
 
-# Example usage in app.py
-# if __name__ == "__main__":
-#     base_url = 'https://www.commonfloor.com/listing-search?city=Mumbai&cg=Mumbai%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
-#     class_name_to_find = 'impressionAd'
-#     max_scrolls = 1
-#
-#     property_details_df = scrape_property_details(base_url, class_name_to_find, max_scrolls)
-#
-#     # Print the scraped property details
-#     print(property_details_df.to_string())
-#
-# if __name__ == "__main__":
-#     base_url = 'https://www.commonfloor.com/listing-search?city=Mumbai&cg=Mumbai%20division&iscg=&search_intent=sale&polygon=1&page=1&page_size=70'
-#     class_name_to_click = 'st_title'  # Replace with your desired class name
-#     max_scrolls = 1
-#
-#     scraped_urls: list[Any] = scrape_listing_urls(base_url, class_name_to_click, max_scrolls)
-#
-#     # Print the scraped URLs
-#     print(f"Total {len(scraped_urls)} URLs extracted:")
-#     for url in scraped_urls:
-#         print("Listing URL:", url)
-
-
 def scrape_data_from_urls(url_list):
     # Create an empty list to store scraped data
     scraped_data = []
 
-    # Set up Firefox driver
-    driver = webdriver.Firefox()
+    # Set up Chrome driver
+    driver = webdriver.Chrome()
 
     # Initialize a set to keep track of visited URLs
     visited_urls = set()
@@ -192,7 +165,7 @@ def scrape_data_from_urls(url_list):
 
     return df
 
-
-#
-# floorplan=scrape_data_from_urls(scraped_urls)
-# print(floorplan.to_string())
+# Example usage:
+# df_property_details = scrape_property_details('your_city', 'your_class_name', 3)
+# url_list = scrape_listing_urls('your_city', 'your_class_name_to_click', 3)
+# df_scraped_data = scrape_data_from_urls(url_list)
