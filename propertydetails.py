@@ -32,10 +32,15 @@ def scrape_property_details(city, class_name_to_find, max_scrolls):
 
         for element in elements:
             # Find the <a> tag within the <h2> element
-            title_element = element.find_element(By.CLASS_NAME, 'st_title')
+            title_element = element.find_element(By.CLASS_NAME, 'snbSubH')
 
             # Extract the title from the <a> tag
-            title = title_element.text[:70]
+
+            full_title = title_element.text
+
+            # Find the index of 'Similar Properties' in the title
+            index_of_similar_properties = full_title.find('Similar Properties')
+            title = full_title[:index_of_similar_properties].strip() if index_of_similar_properties != -1 else full_title.strip()
 
             # Find the price within the element
             city_element = driver.find_element(By.ID, 'snb_cn_id')
